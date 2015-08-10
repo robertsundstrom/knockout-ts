@@ -936,9 +936,6 @@ export class ModernBindingProvider implements BindingProvider {
 				}
 			}
 		}
-		if (Object.getOwnPropertyNames(bindings).length > 0) {
-			console.log(bindings);
-		}
 		return bindings;
 	}
 	processNode(node: Node): Node[] {
