@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			.test {
+				color: red;
+			}
+			
+			.test2 {
+				color: green;
+			}
+			
+			.test3 {
+				font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+			}
+		</style>
+	</head>
+	<body>
+		<form ko-submit="register">
+			<h1 ko-text="fullName + ' (' + clicks + ' clicks)'"></h1>
+			<input type="text" ko-text-input="firstName" required></input>
+			<input type="text" ko-text-input="lastName" required></input>
+			<button type="submit">Register</button>
+			<input type="text" ko-value="link"></input>
+			<button ko-href="link">Navigate</button>
+		</form>
+		<select ko-options="items" ko-value="selectedItem" ko-options-text="'name'" ko-options-value="'value'"></select>
+		<div ko-html="'<h2>' + selectedItem + '</h2>'"></div>
+		<script src="../libs/require.js" data-main="dist/sample1"></script>
+	</body>
+
+</html>

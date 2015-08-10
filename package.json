@@ -1,0 +1,33 @@
+{
+  "name": "knockout-ts",
+  "version": "0.0.1",
+  "description": "This is an experimental re-implementation of Knockout written in TypeScript.",
+  "main": "",
+  "directories": {
+    "test": "tests",
+    "baseURL": "wwwroot",
+    "packages": "wwwroot\\jspm_packages"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertsundstrom/knockout-ts.git"
+  },
+  "author": "Robert Sundström",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robertsundstrom/knockout-ts/issues"
+  },
+  "homepage": "https://github.com/robertsundstrom/knockout-ts#readme",
+  "jspm": {
+    "directories": {
+      "baseURL": "wwwroot",
+      "test": "tests"
+    },
+    "devDependencies": {
+      "typescript": "github:mhegazy/typescript@v1.5-beta2"
+    }
+  }
+}
