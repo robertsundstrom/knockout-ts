@@ -1,11 +1,15 @@
 import * as ko from "../../knockout";
+import {BindingContext } from "../bindingContext";
+import {BindingProvider } from "../bindingProvider";
+import {BindingHandler } from "../bindingHandler";
+import {Bindings } from "../bindings";
 
-class WithBindingHandler implements ko.BindingHandler {
-	init(element: Element, accessor: (value?: any) => any, allBindings: ko.Bindings, bindingContext: ko.BindingContext) {
+class WithBindingHandler implements BindingHandler {
+	init(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let value = accessor();
 		if (value !== undefined) {
 			ko.track(value);
-			let newContext: ko.BindingContext = {
+			let newContext: BindingContext = {
 				$data: value,
 				$parent: bindingContext.$data,
 				$root: bindingContext.$root
@@ -14,13 +18,13 @@ class WithBindingHandler implements ko.BindingHandler {
 		}
 	}
 
-	update(element: Element, accessor: (value?: any) => any, allBindings: ko.Bindings, bindingContext: ko.BindingContext) {
+	update(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let value = accessor();
 		console.log(JSON.stringify(value));
 		console.log(bindingContext);
 		if (value !== undefined && value !== null) {
 			ko.track(value);
-			let newContext: ko.BindingContext = {
+			let newContext: BindingContext = {
 				$data: value,
 				$parent: bindingContext.$data,
 				$root: bindingContext.$root

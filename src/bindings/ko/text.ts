@@ -1,7 +1,11 @@
 import * as ko from "../../knockout";
+import {BindingContext } from "../bindingContext";
+import {BindingProvider } from "../bindingProvider";
+import {BindingHandler } from "../bindingHandler";
+import {Bindings } from "../bindings";
 
-class TextBindingHandler implements ko.BindingHandler {
-	update(element: Element, accessor: (value?: any) => any, allBindings: ko.Bindings, bindingContext: ko.BindingContext): void {
+class TextBindingHandler implements BindingHandler {
+	update(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext): void {
 		element.textContent = accessor();
 	}
 }

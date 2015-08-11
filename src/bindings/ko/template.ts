@@ -1,27 +1,31 @@
 import * as ko from "../../knockout";
+import {BindingContext } from "../bindingContext";
+import {BindingProvider } from "../bindingProvider";
+import {BindingHandler } from "../bindingHandler";
+import {Bindings } from "../bindings";
 
-class TemplateBindingHandler implements ko.BindingHandler {
+class TemplateBindingHandler implements BindingHandler {
 	selector = ["div"];
 
-	init(element: Element, accessor: (value?: any) => any, allBindings: ko.Bindings, bindingContext: ko.BindingContext) {
-		let obj = accessor();
-		console.log(obj);
-		if (typeof (obj) === 'string') {
+	init(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext) {
+		let options = accessor();
+		console.log(options);
+		if (typeof (options) === 'string') {
 
-		} else if (typeof (obj) === 'object') {
+		} else if (typeof (options) === 'object') {
 			let name = null;
 			let observable = null;
-			if ("name" in obj) {
-				name = obj.name;
+			if ("name" in options) {
+				name = options.name;
 			} else {
 				console.error("Invalid argument.");
 			}
-			if ("data" in obj) {
-				var items = obj.data;
+			if ("data" in options) {
+				var items = options.data;
 				observable = ko.resolveObservable(bindingContext.$data, items);
 				console.log(observable);
-			} else if ("foreach" in obj) {
-				var items = obj.foreach;
+			} else if ("foreach" in options) {
+				var items = options.foreach;
 				observable = ko.resolveObservable(bindingContext.$data, items);
 				console.log(observable);
 			}

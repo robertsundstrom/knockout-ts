@@ -1,9 +1,13 @@
 import * as ko from "../../knockout";
+import {BindingContext } from "../bindingContext";
+import {BindingProvider } from "../bindingProvider";
+import {BindingHandler } from "../bindingHandler";
+import {Bindings } from "../bindings";
 
-class SubmitBindingHandler implements ko.BindingHandler {
+class SubmitBindingHandler implements BindingHandler {
 	selector = "form";
 
-	init(element: Element, accessor: (value?: any) => any, allBindings: ko.Bindings, bindingContext: ko.BindingContext): void {
+	init(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext): void {
 		(function(bindingContext) {
 			function setHandler(value) {
 				let $data = bindingContext.$data;

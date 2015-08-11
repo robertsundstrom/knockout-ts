@@ -1,10 +1,11 @@
 import * as js from "./utils/js-object-literal-parse";
 
+export let log: boolean = true;
+
 import {BindingContext } from "./bindings/bindingContext";
 import {BindingProvider } from "./bindings/bindingProvider";
+import {BindingHandler } from "./bindings/bindingHandler";
 import {Bindings } from "./bindings/bindings";
-
-export let log: boolean = true;
 
 /*
 export interface BindingProvider {
@@ -57,23 +58,6 @@ export let hooks: Hooks = {
 		}
 	}
 };
-
-export interface BindingHandler {
-	/**
-	 * Gets the selector(s) for the elements to which this binding can be applied.
-	 */
-	selector?: string | string[];
-	
-	/**
-	 * Initialized the binding for a element.
-	 */
-	init?(element: Element, valueAccessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext): void | BindingContext;
-	 
-	/**
-	 * Fires when the value changes.
-	 */
-	update?(element: Element, valueAccessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext): void;
-}
 
 export interface Subscribable<T> {
 	subscribe(handler: (newValue: T, oldValue: T) => void): { notify(): void };

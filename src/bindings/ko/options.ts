@@ -1,9 +1,13 @@
 import * as ko from "../../knockout";
+import {BindingContext } from "../bindingContext";
+import {BindingProvider } from "../bindingProvider";
+import {BindingHandler } from "../bindingHandler";
+import {Bindings } from "../bindings";
 
-class OptionsBindingHandler implements ko.BindingHandler {
+class OptionsBindingHandler implements BindingHandler {
 	selector = "select";
 
-	update(element: Element, accessor: (value?: any) => any, allBindings: ko.Bindings, bindingContext: ko.BindingContext) {
+	update(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let itemsArray = accessor();
 
 		let wasEmpty = element.length == 0;
@@ -60,13 +64,13 @@ class OptionsBindingHandler implements ko.BindingHandler {
 
 ko.bindingHandlers["ko"]["options"] = new OptionsBindingHandler();
 
-class OptionsTextBindingHandler implements ko.BindingHandler {
+class OptionsTextBindingHandler implements BindingHandler {
 
 }
 
 ko.bindingHandlers["ko"]["optionsText"] = new OptionsTextBindingHandler();
 
-class OptionsValueBindingHandler implements ko.BindingHandler {
+class OptionsValueBindingHandler implements BindingHandler {
 
 }
 
