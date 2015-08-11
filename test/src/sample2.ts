@@ -27,11 +27,6 @@ class ViewModel {
 	}
 }
 
-ko.hooks.beforeTrack.push((viewModel) => console.log("Preparing to track", viewModel));
-ko.hooks.beforeTrack.push((viewModel) => console.log("Tracking object", viewModel));
-
-//ko.setBindingProvider(new ko.ModernBindingProvider());
-
 let vm = new ViewModel();
 ko.applyBindings(vm);
 
