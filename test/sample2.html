@@ -18,13 +18,16 @@
 		</style>
 	</head>
 	<body>
-		<h1 data-bind="text: fullName() + ' (' + clicks() + ' clicks)'"></h1>
-		<input type="text" data-bind="textInput: firstName"></input>
-		<input type="text" data-bind="textInput: lastName"></input>
-		<button data-bind="click: register">Register</button>
-		<input type="text" data-bind="value: link"></input>
-		<button data-bind="href: link">Navigate</button>
-		<a data-bind="href: 'http://www.msn.com/', visible: flag(), css: { 'test': clicks() > 2, 'test2': clicks() < 2, 'test3': clicks() === 3 }">MSN.com</a>
+		<form data-bind="submit: register">
+			<h1 data-bind="text: fullName + ' (' + clicks + ' clicks)'"></h1>
+			<input type="text" data-bind="textInput: firstName" required></input>
+			<input type="text" data-bind="textInput: lastName" required></input>
+			<button type="submit">Register</button>
+			<input type="text" data-bind="value: link"></input>
+			<button data-bind="href: link">Navigate</button>
+		</form>
+		<select data-bind="options: items, value: selectedItem, optionsText: 'name', optionsValue: 'value'"></select>
+		<div data-bind="html: '<h2>' + selectedItem + '</h2>'"></div>
 		<script src="../libs/require.js" data-main="dist/sample2"></script>
 	</body>
 

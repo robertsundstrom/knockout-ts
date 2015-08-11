@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			.test {
+				color: red;
+			}
+			
+			.test2 {
+				color: green;
+			}
+			
+			.test3 {
+				font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 data-bind="text: fullName() + ' (' + clicks() + ' clicks)'"></h1>
+		<input type="text" data-bind="textInput: firstName"></input>
+		<input type="text" data-bind="textInput: lastName"></input>
+		<button data-bind="click: register">Register</button>
+		<input type="text" data-bind="value: link"></input>
+		<button data-bind="href: link">Navigate</button>
+		<a data-bind="href: 'http://www.msn.com/', visible: flag(), css: { 'test': clicks() > 2, 'test2': clicks() < 2, 'test3': clicks() === 3 }">MSN.com</a>
+		<script src="../libs/require.js" data-main="dist/sample2"></script>
+	</body>
+
+</html>
