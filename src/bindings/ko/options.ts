@@ -1,12 +1,11 @@
 import * as ko from "../../knockout";
 import {BindingContext } from "../bindingContext";
 import {BindingProvider } from "../bindingProvider";
-import {BindingHandler } from "../bindingHandler";
+import {BindingHandler, selector } from "../bindingHandler";
 import {Bindings } from "../bindings";
 
+@selector(["select"])
 class OptionsBindingHandler implements BindingHandler {
-	selector = "select";
-
 	update(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let itemsArray = accessor();
 

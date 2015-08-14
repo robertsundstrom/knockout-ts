@@ -1,12 +1,11 @@
 import * as ko from "../../knockout";
 import {BindingContext } from "../bindingContext";
 import {BindingProvider } from "../bindingProvider";
-import {BindingHandler } from "../bindingHandler";
+import {BindingHandler, selector } from "../bindingHandler";
 import {Bindings } from "../bindings";
 
+@selector(["div"])
 class TemplateBindingHandler implements BindingHandler {
-	selector = ["div"];
-
 	init(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let options = accessor();
 		console.log(options);
