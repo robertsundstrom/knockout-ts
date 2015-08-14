@@ -55,13 +55,13 @@ However, the goal is NOT to be fully compatible with the  official Knockout libr
 
 The minimum supported JavaScript version is ECMAScript 5.
 
-Because of that functionality similar to the Knockout-ES5 plugin will be included and enabled by default. That means that programmers will not use observables unless they really need or want to. They are mostly an implementation detail.
+Because of that, functionality similar to the Knockout-ES5 plugin will be included and enabled by default. That means that programmers will not use observables unless they really need or want to. They are mostly an implementation detail.
 
 The library is ECMAScript 6 first. Built with TypeScript for ES6, now ES2015. That means classes and arrow functions and so on. Documentation and samples written in ES2015.
 
 Web components. Aligned with the standard proposals.
 
-Stressing "extensibility". Not much will be integrated in the core but rather functionality will be provided as plugins. There will be a new plugin model with improved extension points. Great documentation.
+Stressing "extensibility". Not much will be integrated in the core but will rather be provided as plugins. There will be a new plugin model with improved extension points. Great documentation.
 
 Plugin wishlist: Validation. Dependency service.
 
