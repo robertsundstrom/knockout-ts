@@ -154,7 +154,7 @@ Explicitly declared observables are, of course, still supported.
 
 Make sure that the [currently] latest TypeScript compiler is installed on your computer.
 
-    npm install -g git+https://github.com/Microsoft/TypeScript.git
+    npm install -g typescript@next
   
 Run the compiler in the project root.
 
