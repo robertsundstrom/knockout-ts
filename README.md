@@ -16,9 +16,9 @@ To mention a few...
 
 These have not been implemented yet...
 
-* All bindings
-* Templates
-* Components
+* All the bindings
+* Template Engine
+* Component-support
 * Full extensibility support
 
 ## The Project
