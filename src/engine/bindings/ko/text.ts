@@ -10,4 +10,4 @@ class TextBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["text"] = new TextBindingHandler();
+ko.registerBindingHandler("ko.text", new TextBindingHandler());

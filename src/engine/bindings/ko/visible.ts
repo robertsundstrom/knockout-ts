@@ -4,15 +4,15 @@ import {BindingProvider } from "../bindingProvider";
 import {BindingHandler } from "../bindingHandler";
 import {Bindings } from "../bindings";
 
-class EnableBindingHandler implements BindingHandler {
+class VisibleBindingHandler implements BindingHandler {
 	update(element: Element, accessor: (value?: any) => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let value = accessor();
 		if (value) {
-			element.disabled = false;
+			element.style.visibility = "visible";
 		} else {
-			element.disabled = true;
+			element.style.visibility = "collapse";
 		}
 	}
 }
 
-ko.bindingHandlers["ko"]["enable"] = new EnableBindingHandler();
+ko.registerBindingHandler("ko.visible", new VisibleBindingHandler());

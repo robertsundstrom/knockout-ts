@@ -34,4 +34,4 @@ class TemplateBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["template"] = new TemplateBindingHandler();
+ko.registerBindingHandler("ko.template", new TemplateBindingHandler());

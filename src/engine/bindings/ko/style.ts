@@ -4,7 +4,7 @@ import {BindingProvider } from "../bindingProvider";
 import {BindingHandler } from "../bindingHandler";
 import {Bindings } from "../bindings";
 
-class EventBindingHandler implements BindingHandler {
+class StyleBindingHandler implements BindingHandler {
 	update(element: Element, accessor: () => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let newValue = accessor();
 		if (newValue === undefined || newValue === null) {
@@ -13,14 +13,14 @@ class EventBindingHandler implements BindingHandler {
 		if (typeof newValue === 'object') {
 			for (let prop in newValue) {
 				let propValue = newValue[prop];
-				if (typeof propValue === 'function') {
-					element['on' + prop] = propValue.bind(bindingContext.$data);
+				if (typeof propValue === 'string' || typeof propValue === 'number') {
+					element.style[prop] = propValue;
 				} else {
-					console.error("Invalid argument: Expected a function.");
+					console.error("Invalid argument.");
 				}
 			}
 		}
 	}
 }
 
-ko.bindingHandlers["ko"]["event"] = new EventBindingHandler();
+ko.registerBindingHandler("ko.style", new StyleBindingHandler());

@@ -23,4 +23,4 @@ class HrefBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["href"] = new HrefBindingHandler();
+ko.registerBindingHandler("ko.href", new HrefBindingHandler());

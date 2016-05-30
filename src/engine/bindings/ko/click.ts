@@ -25,8 +25,4 @@ class ClickBindingHandler implements BindingHandler {
 	}
 }
 
-if (typeof ko.bindingHandlers["ko"] == 'undefined') {
-	ko.bindingHandlers.ko = {};
-	ko.bindingHandlers.defaultNamespace = "ko";
-}
-ko.bindingHandlers["ko"]["click"] = new ClickBindingHandler();
+ko.registerBindingHandler("ko.click", new ClickBindingHandler());

@@ -11,4 +11,4 @@ class JsonBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["json"] = new JsonBindingHandler();
+ko.registerBindingHandler("ko.json", new JsonBindingHandler());

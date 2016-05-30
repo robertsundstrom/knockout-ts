@@ -1,4 +1,4 @@
-﻿import ko from "../../dist/index";
+﻿import * as ko from "../../dist/knockout";
 
 ko.config({
 	autoTrack: false

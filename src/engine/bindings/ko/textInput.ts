@@ -19,4 +19,4 @@ class TextInputBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["textInput"] = new TextInputBindingHandler();
+ko.registerBindingHandler("ko.textInput", new TextInputBindingHandler());

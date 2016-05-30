@@ -19,4 +19,4 @@ class ValueBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["value"] = new ValueBindingHandler();
+ko.registerBindingHandler("ko.value", new ValueBindingHandler());

@@ -38,4 +38,4 @@ class WithBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["with"] = new WithBindingHandler();
+ko.registerBindingHandler("ko.with", new WithBindingHandler());

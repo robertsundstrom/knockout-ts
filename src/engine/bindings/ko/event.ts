@@ -4,22 +4,23 @@ import {BindingProvider } from "../bindingProvider";
 import {BindingHandler } from "../bindingHandler";
 import {Bindings } from "../bindings";
 
-class CssBindingHandler implements BindingHandler {
+class EventBindingHandler implements BindingHandler {
 	update(element: Element, accessor: () => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let newValue = accessor();
 		if (newValue === undefined || newValue === null) {
 			newValue = "";
 		}
-		let classStr = "";
 		if (typeof newValue === 'object') {
 			for (let prop in newValue) {
-				if (newValue[prop] === true) {
-					classStr += `${prop} `;
+				let propValue = newValue[prop];
+				if (typeof propValue === 'function') {
+					element['on' + prop] = propValue.bind(bindingContext.$data);
+				} else {
+					console.error("Invalid argument: Expected a function.");
 				}
 			}
 		}
-		element.className = classStr.trim();
 	}
 }
 
-ko.bindingHandlers["ko"]["css"] = new CssBindingHandler();
+ko.registerBindingHandler("ko.event", new EventBindingHandler());

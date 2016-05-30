@@ -61,16 +61,16 @@ class OptionsBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["options"] = new OptionsBindingHandler();
+ko.registerBindingHandler("ko.options", new OptionsBindingHandler());
 
 class OptionsTextBindingHandler implements BindingHandler {
 
 }
 
-ko.bindingHandlers["ko"]["optionsText"] = new OptionsTextBindingHandler();
+ko.registerBindingHandler("ko.optionsText", new OptionsTextBindingHandler());
 
 class OptionsValueBindingHandler implements BindingHandler {
 
 }
 
-ko.bindingHandlers["ko"]["optionsValue"] = new OptionsValueBindingHandler();
+ko.registerBindingHandler("ko.optionsValue", new OptionsValueBindingHandler());

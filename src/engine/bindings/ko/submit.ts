@@ -26,4 +26,4 @@ class SubmitBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["submit"] = new SubmitBindingHandler();
+ko.registerBindingHandler("ko.submit", new SubmitBindingHandler());

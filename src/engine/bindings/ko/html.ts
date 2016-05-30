@@ -11,4 +11,4 @@ class HtmlBindingHandler implements BindingHandler {
 	}
 }
 
-ko.bindingHandlers["ko"]["html"] = new HtmlBindingHandler();
+ko.registerBindingHandler("ko.html", new HtmlBindingHandler());
