@@ -27,6 +27,7 @@
 			<button ko-href="link">Navigate</button>
 		</form>
 		<select ko-options="items" ko-value="selectedItem" ko-options-text="'name'" ko-options-value="'value'"></select>
+		<button data-bind="click: add">Add</button>
 		<div ko-html="'<h2>' + selectedItem + '</h2>'"></div>
 		<div ko-template="{ name: 'test' }"></div>
 		<script src="../libs/require.js" data-main="dist/sample1"></script>

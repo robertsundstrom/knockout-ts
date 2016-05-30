@@ -648,6 +648,51 @@ export function createObservables(viewModel) {
 	}
 }
 
+export function fromJS<T>(obj: T): T {
+	if (configuration.autoTrack) {
+		return track(obj);
+	} else {
+		let target: any = {};
+		for (let prop in obj) {
+			let candidate = obj[prop];
+			if (!isObservable(candidate)) {
+				if (candidate instanceof Function) {
+					continue;
+				} else {
+					let configuration = Object.getOwnPropertyDescriptor(obj, prop);
+					if (configuration === undefined) {
+						configuration = Object.getOwnPropertyDescriptor(obj.__proto__, prop);
+					}
+					if ("get" in configuration && (!("set" in configuration) || configuration.set === undefined)) {
+						candidate = computed(configuration.get.bind(obj));
+					} else {
+						if (Array.isArray(candidate)) {
+							candidate = observableArray(candidate);
+							candidate.subscribe(() => {
+								
+							});
+						} else {
+							candidate = observable(candidate);
+							/*
+							candidate.subscribe((value) => {
+								obj[prop] = value;
+							});
+							*/
+						}
+					}
+					target[prop] = candidate;
+				}
+			}		
+		}
+		target.original = obj;
+		return <T>target;
+	}
+}
+
+export function getOriginal(obj: any) {
+	return obj.original;
+}
+
 export function track(viewModel: any): any {
 	if (typeof viewModel.__observables__ === 'undefined') {
 		let __observables__ = {};
@@ -659,6 +704,7 @@ export function track(viewModel: any): any {
 			configurable: true
 		});
 	} else {
+		console.info("Object is already being tracked", viewModel);
 		return;
 	}
 	hooks.__triggerHook("beforeTrack", viewModel);

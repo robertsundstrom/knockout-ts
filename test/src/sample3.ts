@@ -4,6 +4,8 @@ ko.config({
 	autoTrack: false
 });
 
+var model = ko.fromJS({ id: 1, name: "test" });
+
 var vm = {
 	firstName: ko.observable("Robert"),
 	lastName: ko.observable("Sundström"),

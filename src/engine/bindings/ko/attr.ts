@@ -4,8 +4,6 @@ import {BindingProvider } from "../bindingProvider";
 import {BindingHandler } from "../bindingHandler";
 import {Bindings } from "../bindings";
 
-console.log(ko);
-
 class AttrBindingHandler implements BindingHandler {
 	update(element: Element, accessor: () => any, allBindings: Bindings, bindingContext: BindingContext) {
 		let newValue = accessor();
@@ -19,7 +17,5 @@ class AttrBindingHandler implements BindingHandler {
 		}
 	}
 }
-
-console.log(ko.registerBindingHandler);
 
 ko.registerBindingHandler("ko.attr", new AttrBindingHandler());
