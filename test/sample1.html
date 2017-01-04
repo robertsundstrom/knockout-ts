@@ -18,19 +18,34 @@
 		</style>
 	</head>
 	<body>
-		<form ko-submit="register">
-			<h1 ko-text="fullName + ' (' + clicks + ' clicks)'"></h1>
-			<input type="text" ko-text-input="firstName" required></input>
-			<input type="text" ko-text-input="lastName" required></input>
+		<form ko.submit="register">
+			<h1 ko.text="fullName + ' (' + clicks + ' clicks)'"></h1>
+			<input type="text" ko.text-input="firstName" required></input>
+			<input type="text" ko.text-input="lastName" required></input>
 			<button type="submit">Register</button>
-			<input type="text" ko-value="link"></input>
-			<button ko-href="link">Navigate</button>
+			<input type="text" ko.value="link"></input>
+			<button ko.href="link">Navigate</button>
 		</form>
-		<select ko-options="items" ko-value="selectedItem" ko-options-text="'name'" ko-options-value="'value'"></select>
-		<button data-bind="click: add">Add</button>
-		<div ko-html="'<h2>' + selectedItem + '</h2>'"></div>
-		<div ko-template="{ name: 'test' }"></div>
-		<script src="../libs/require.js" data-main="dist/sample1"></script>
+		<select ko.options="items" ko.value="selectedItem" ko.options-text="'name'" ko.options-value="'value'"></select>
+		<button ko.click="add">Add</button>
+		<div ko.html="'<h2>' + selectedItem + '</h2>'"></div>
+		<div ko.template="{ name: 'test' }"></div>
+		<script src="../libs/require.js"></script>
+	<script>		
+	require.config({
+			baseUrl: ".",
+			paths: {
+				"knockout": "../dist/knockout",
+				"reflect-metadata": "../libs/reflect-metadata"
+			},
+			waitSeconds: 15
+		});
+
+		require(["build/sample1"],
+			function (sample) {
+
+		});
+	</script>
 	</body>
 
 </html>

@@ -1,0 +1,17 @@
+import "bindings/ko/attr";
+import "bindings/ko/click";
+import "bindings/ko/css";
+import "bindings/ko/enable";
+import "bindings/ko/event";
+import "bindings/ko/href";
+import "bindings/ko/html";
+import "bindings/ko/json";
+import "bindings/ko/options";
+import "bindings/ko/style";
+import "bindings/ko/submit";
+import "bindings/ko/template";
+import "bindings/ko/text";
+import "bindings/ko/textInput";
+import "bindings/ko/value";
+import "bindings/ko/visible";
+import "bindings/ko/with";

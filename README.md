@@ -105,13 +105,13 @@ In addition to the existing ''data-bind'' syntax there is also a new attribute s
 		<title>Document</title>
 	</head>
 	<body>
-		<form ko-submit="register">
-			<h1 ko-text="fullName + ' (' + clicks + ' clicks)'"></h1>
-			<input type="text" ko-text-input="firstName" required></input>
-			<input type="text" ko-text-input="lastName" required></input>
+		<form ko.submit="register">
+			<h1 ko.text="fullName + ' (' + clicks + ' clicks)'"></h1>
+			<input type="text" ko.text-input="firstName" required></input>
+			<input type="text" ko.text-input="lastName" required></input>
 			<button type="submit">Register</button>
-			<input type="text" ko-value="link"></input>
-			<button ko-href="link">Navigate</button>
+			<input type="text" ko.value="link"></input>
+			<button ko.href="link">Navigate</button>
 		</form>
 		<script data-main="../src/test" src="require.js"></script>
 	</body>

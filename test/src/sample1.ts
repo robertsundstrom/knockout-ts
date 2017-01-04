@@ -1,4 +1,4 @@
-import * as ko from "../../dist/knockout";
+import * as ko from "knockout";
 
 class ViewModel {
 	firstName = "Robert";

@@ -1,11 +1,5 @@
-import * as ko from "./engine/knockout";
+import "./_knockout";
+import "./bindings";
 
-let x1 = ko;
-
-export * from './engine/knockout';
-
-import * as bindings from "./engine/bindings/index";
-
-let x2 = bindings;
-
-export * from "./engine/bindings/index";
+export * from "./_knockout";
+import "./bindings";
