@@ -90,7 +90,22 @@ This sample shows how to use Knockout-TS with auto-observables in ECMAScript 201
 			<button data-bind="href: link">Navigate</button>
 			<a data-bind="href: 'http://www.msn.com/'">MSN.com</a>
 		</form>
-		<script data-main="../src/test" src="require.js"></script>
+		<script src="../libs/require.js"></script>
+		<script>		
+			require.config({
+				baseUrl: ".",
+				paths: {
+					"knockout": "../dist/knockout",
+					"reflect-metadata": "../libs/reflect-metadata"
+				},
+				waitSeconds: 15
+			});
+
+			require(["build/sample1"],
+				function (sample) {
+
+			});
+		</script>
 	</body>
 </html>
 ```
