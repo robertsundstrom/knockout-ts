@@ -113,7 +113,22 @@ In addition to the existing ''data-bind'' syntax there is also a new attribute s
 			<input type="text" ko.value="link"></input>
 			<button ko.href="link">Navigate</button>
 		</form>
-		<script data-main="../src/test" src="require.js"></script>
+		<script src="../libs/require.js"></script>
+		<script>		
+			require.config({
+				baseUrl: ".",
+				paths: {
+					"knockout": "../dist/knockout",
+					"reflect-metadata": "../libs/reflect-metadata"
+				},
+				waitSeconds: 15
+			});
+
+			require(["build/sample1"],
+				function (sample) {
+
+			});
+		</script>
 	</body>
 
 </html>
@@ -137,6 +152,8 @@ class ViewModel {
 	clicks = 0;
 	link = 'http://www.msn.com/';
 }
+
+ko.setBindingProvider(new ko.ModernBindingProvider());
     
 var vm = new ViewModel();
 ko.applyBindings(vm);
