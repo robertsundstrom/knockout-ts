@@ -201,5 +201,3 @@ Run the watcher when developing.
     tsc --watch
 
 I recommend using Visual Studio Code as code editor.
-
-(DISCLAIMER: The "watch"-command only works on Windows 10 at the moment)

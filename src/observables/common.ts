@@ -101,9 +101,11 @@ export function track(viewModel: any): any {
 		}
 		try {
 			(function(viewModel, prop, candidate) {
+				/*
 				candidate.extend({
 					track: true
 				});
+				*/
 				Object.defineProperty(viewModel, prop, {
 					get: () => {
 						return candidate();

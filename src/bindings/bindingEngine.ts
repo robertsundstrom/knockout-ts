@@ -22,6 +22,7 @@ export function createExpression(expression: string, context?: BindingContext) {
 
 export function applyBindingsInternal(bindingContext: BindingContext, node: Element) {
 	let result = null;
+	let deep = true;
 	if (bp.bindingProvider.hasBindings(node)) {
 		let bindings = bp.bindingProvider.getBindingAccessors(node, bindingContext);
 		let variableNames = null;
@@ -48,6 +49,9 @@ export function applyBindingsInternal(bindingContext: BindingContext, node: Elem
 				if (bindingValue === null) {
 					console.error(`Property "${prop}" is undefined.`);
 					continue;
+				}
+				if(prop === "ko.template") {
+					deep = false;
 				}
 				// Check if there is one or many selectors and validate.
 				let isSelectable = true;
@@ -122,8 +126,10 @@ export function applyBindingsInternal(bindingContext: BindingContext, node: Elem
 		storedContext = bindingContext;
 		bindingContext = result;
 	}
-	for (let childNode of Array.prototype.slice.call(node.childNodes)) {
-		applyBindingsInternal(bindingContext, childNode);
+	if(deep) {
+		for (let childNode of Array.prototype.slice.call(node.childNodes)) {
+			applyBindingsInternal(bindingContext, childNode);
+		}
 	}
 	if (storedContext !== undefined) {
 		bindingContext = storedContext;

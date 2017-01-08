@@ -59,13 +59,15 @@ export class ModernBindingProvider implements BindingProvider {
 				let bindingName = "", namespaceName = "";
 				let bindingHandler = undefined;
 				if (nameParts.length === 1) {
-					return;
+					continue;
+					/*
 					// This might override expected behavior
 					bindingName = nameParts[0];
 					bindingHandler = bh.bindingHandlers[bh.bindingHandlers.defaultNamespace][bindingName];
 					if (bindingHandler !== undefined) {
 						fullName = `${bh.bindingHandlers.defaultNamespace}-${bindingName}`
 					}
+					*/
 				} else if (nameParts.length === 2) {
 					namespaceName = nameParts[0];
 					bindingName = nameParts[1];

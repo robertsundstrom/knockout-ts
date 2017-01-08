@@ -64,6 +64,6 @@ export function observableArray<T>(value?: T[]): ObservableArray<T> {
 			computed.notifyAll();
 		}
 		*/
-	}
+	}.bind(data);
 	return accessor;
 }
